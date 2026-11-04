@@ -94,6 +94,15 @@ curl -fsS http://127.0.0.1:8000/api/v1/health
 - 大文件经 Pages Function 流式转发会占用 VPS 出口带宽；慢解析仍可能遇到 Cloudflare 首字节超时（524）。
 - 不提供 CORS：浏览器只能走同源代理，直连 API 仅适合 curl。
 
+## 来源、许可与免责声明
+
+本项目是独立编写的 Playground，**不是 yt-dlp 的 fork，也与 YouTube/Google、哔哩哔哩无隶属或背书关系**。核心解析与下载能力来自上游项目 [yt-dlp](https://github.com/yt-dlp/yt-dlp)（Unlicense），并依赖 [Deno](https://github.com/denoland/deno)（MIT）、[FFmpeg](https://ffmpeg.org)（Debian 构建为 GPL-2.0-or-later）等组件。
+
+- 本仓库源代码：**MIT License**，全文见 [LICENSE](LICENSE)。
+- 第三方组件、版本与许可清单：见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+- 后端镜像同时包含 GPL-2.0-or-later 组件（Debian FFmpeg、`mutagen`）。**公开分发镜像**时须同时履行 GPL 的源码提供义务；仅本机/私有服务器自用通常不触发。本项目代码的 MIT 许可不改变第三方组件的许可。
+- 本项目仅用于个人学习与研究，不得作为公开下载代理服务运营。下载内容可能受著作权与平台服务条款约束，请自行确认权利并遵守相关法律与条款。
+
 ## 升级 yt-dlp
 
 平台站点经常变化，yt-dlp 需要保持较新：

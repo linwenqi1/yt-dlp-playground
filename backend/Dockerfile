@@ -23,6 +23,10 @@ RUN .venv/bin/deno --version \
 # ---- runtime stage ----------------------------------------------------------
 FROM python:3.12-slim AS runtime
 
+LABEL org.opencontainers.image.title="yt-dlp Playground backend" \
+      org.opencontainers.image.description="FastAPI + yt-dlp download service" \
+      org.opencontainers.image.licenses="MIT AND GPL-2.0-or-later"
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends ffmpeg ca-certificates \
     && rm -rf /var/lib/apt/lists/*
