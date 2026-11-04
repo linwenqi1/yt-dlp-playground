@@ -4,8 +4,9 @@
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-11-01",
   "vars": {
-    // Set to "development" only in .dev.vars for local `wrangler pages dev`.
-    "ENVIRONMENT": "production",
+    // TEMPORARY: "development" disables the Access JWT check for /api/*.
+    // Restore to "production" once the custom domain + Access flow is verified.
+    "ENVIRONMENT": "development",
     // API origin only: scheme + host, no path, no trailing slash.
     "API_ORIGIN": "https://api.example.com",
     "ACCESS_DOMAIN": "https://example.cloudflareaccess.com",
