@@ -8,7 +8,7 @@ dev-backend:
 	cd backend && uv run uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 
 dev-frontend:
-	cd frontend && pnpm dev
+	cd frontend && exec pnpm exec vite
 
 test:
 	cd backend && uv run pytest
