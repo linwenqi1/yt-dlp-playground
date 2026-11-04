@@ -102,10 +102,14 @@ curl -fsS https://api.example.com/api/v1/health
 | `ACCESS_AUD` | Access 应用的 AUD Tag |
 | `API_TOKEN` | **Secret**，与后端 `YTP_API_TOKEN` 完全一致 |
 
+> 仓库刻意不保留 `frontend/wrangler.jsonc`。Pages 项目只要存在 Wrangler 配置文件，部署就会以它作为唯一配置源，覆盖并按部署清空 Dashboard 里设置的环境变量（即使文件里没有 `vars` 块也一样）。因此运行时变量全部在 Dashboard 管理；本地 `pnpm dev:pages` 由 `frontend/.dev.vars` 注入同名变量。
+
 ```bash
 cd frontend
 pnpm dlx wrangler pages secret put API_TOKEN --project-name yt-dlp-playground
 ```
+
+> 修改环境变量后必须在 Pages 触发一次新部署才会生效。
 
 4. 在 Pages → Custom domains 绑定 `ytp.example.com`，并为该域名配置 Access（第 3 步）。
 5. 部署后验证：
