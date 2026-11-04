@@ -1,0 +1,43 @@
+name: yt-dlp-playground
+
+services:
+  backend:
+    image: ${YTP_IMAGE:-ytp-backend:dev}
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    env_file:
+      - compose.env
+    environment:
+      YTP_DATA_DIR: /data
+    volumes:
+      - ytp-data:/data
+    # Loopback only. On the VPS the public entry is the Cloudflare Tunnel;
+    # remove this mapping entirely once your frontend talks through Pages.
+    ports:
+      - "127.0.0.1:8000:8000"
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    profiles: ["tunnel"]
+    command: ["tunnel", "--no-autoupdate", "run"]
+    env_file:
+      - compose.env
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  ytp-data:

@@ -1,0 +1,7 @@
+# Copy to .dev.vars for `pnpm dev:pages` (never commit .dev.vars).
+ENVIRONMENT=development
+API_ORIGIN=http://127.0.0.1:8000
+ACCESS_DOMAIN=https://example.cloudflareaccess.com
+ACCESS_AUD=development
+# 与后端 YTP_API_TOKEN 一致；留空则本地不校验
+API_TOKEN=

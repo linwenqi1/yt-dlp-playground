@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+backend/.venv/
+backend/.pytest_cache/
+backend/.ruff_cache/
+backend/data/
+backend/.env
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.dev.vars
+frontend/.env
+frontend/.env.local
+frontend/.wrangler/
+frontend/*.tsbuildinfo
+
+# Tools / secrets
+.DS_Store
+cookies.txt
+deploy/compose.env

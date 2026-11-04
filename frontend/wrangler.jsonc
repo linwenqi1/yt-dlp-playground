@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yt-dlp-playground",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-11-01",
+  "vars": {
+    // Set to "development" only in .dev.vars for local `wrangler pages dev`.
+    "ENVIRONMENT": "production",
+    // API origin only: scheme + host, no path, no trailing slash.
+    "API_ORIGIN": "https://api.example.com",
+    "ACCESS_DOMAIN": "https://example.cloudflareaccess.com",
+    "ACCESS_AUD": "REPLACE_WITH_ACCESS_APPLICATION_AUD"
+  }
+  // API_TOKEN is a secret: `wrangler pages secret put API_TOKEN`
+}
